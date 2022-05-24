@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+    <title>Browse Users</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/f6dbd3498a.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body has-background-primary>
+    <section class="hero is-small has-background-black">
+        <div class="hero-body">
+            <nav class = "level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <a class = "button is-black is-small" href="/FindMeA/homepage">FIND ME A</a>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <div class="level-item">
+                        <a class = "button is-black is-small" href="/FindMeA/info">Info</a>
+                    </div>
+                    <div class="level-item">
+                        <a class = "button is-black is-small" href="/FindMeA/">Logout</a>
+                    </div>
+
+                </div>
+                
+            </nav>
+        </div>
+    </section>
+    <section class="hero is-small has-background-white">
+        <div class="hero-body">
+            <nav class="level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <a class = "button is-white" href="/FindMeA/homepage"><p class="title is-3">Browse Users</p></a>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <p class="level-item"><a class = "button is-white" href="/FindMeA/homepage">Home</a></p>
+                    <p class="level-item"><a class = "button is-white" href="/FindMeA/findsomeone">Mentors</a></p>
+                    <p class="level-item"><strong><a class = "button is-white" href="/FindMeA/browseusers">Users</a></strong></p>
+                    <p class="level-item">
+                        <div class="dropdown is-hoverable">
+                            <div class="dropdown-trigger">
+                                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
+                                    <span>Notifications</span>
+                                    <span class="icon is-small">
+                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+                                <div class="dropdown-content">
+                                    {% for n in notifications %}
+                                    <div class="dropdown-item">
+                                        <div>
+                                            <p><a href="/FindMeA/userprofile?user={{n.sender}}">{{n.sender}}</a> said
+                                                "{{n.message}}"</p>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        </p>
+                    <p class="level-item"><a class="button is-white" href="/FindMeA/userprofile?user={{username}}">You ({{username}})</a></p>
+                  </div>
+                </nav>
+            
+        </div>
+    </section>
+
+    <!-- <section>
+        
+            {% for user in all_users %}
+            <div class="columns">
+                <div class="column">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="content">
+                                <p><a href="/FindMeA/userprofile?user={{user}}"><p class = "subtitle is-6">{{user}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    </section> -->
+    <div class = "columns is-multiline" >
+        {% for user in all_users %}
+        <div class = "column is-one-quarter">
+            <div class="card">
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-20x20">
+                                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Temporoary User Profile Pic">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            {% if user.user == userlogged %}
+                            <p class = "subtitle is-6"><a href="/FindMeA/userprofile?user={{user.user}}"><p class = "subtitle is-6">{{user.first_name}} (you)</a></p>
+                            {% else %}
+                            <p class = "subtitle is-6"><a href="/FindMeA/userprofile?user={{user.user}}"><p class = "subtitle is-6">{{user.first_name}}</a></p>
+                            {% endif %}
+
+                            <p class="subtitle is-6">{{user.email_address}}</p>
+                        </div>
+                    </div>
+                    
+        
+                    <div class="content">
+                        <p>{{user.description}}
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

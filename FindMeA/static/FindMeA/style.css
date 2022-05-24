@@ -1,0 +1,16 @@
+p {
+    color: rgb(255, 0, 0);
+    font-size: 1.5em;
+    background-color: #ccc;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+
+    padding: 40px;
+    border: 20px;
+}
+
+a {
+    color: rgb(0, 0, 255);
+}

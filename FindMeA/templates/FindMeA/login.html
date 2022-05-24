@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+    <title> Find me A...(TBD) </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body has-background-primary>
+    <nav class="level">
+        <p class="level-item has-text-centered">
+          <a class="link is-info">Info</a>
+        </p>
+        <p class="level-item has-text-centered">
+          <a class="link is-info">Interact & Mentor</a>
+        </p>
+        <p class="title is-1 level-item has-text-centered">
+            <a class="link is-info">Find Me A</p>
+        </p>
+        <p class="level-item has-text-centered">
+          <a class="link is-info">Interact & Mentor</a>
+        </p>
+        <p class="level-item has-text-centered">
+          <a class="link is-info">Info</a>
+        </p>
+      </nav>
+        <section class="section">
+            <div class="columns">
+                <div class="column">
+                    <div class="notification has-background-primary">
+                        <p class="subtitle is-5">Join Us Today</p>
+                            <form action="{% url 'FindMeA:signup' %}" method="post">
+                                {% csrf_token %}
+                                <input class = "input is-link" type="text" placeholder = "Create Username" id="username" name="username"><br><br>
+                                <!-- <label for="username">Username</label><br><br> -->
+
+                                <input class = "input is-link" type="password" placeholder = "Create Password" id="password" name="password"><br><br>
+                                <!-- <label for="password">Password</label><br><br> -->
+
+
+                                <input type="submit" value="Sign Up">
+                            </form>
+                    </div>
+                </div>
+            
+
+        
+            
+                <div class="column">
+                    <div class="notification has-background-primary">
+                        <p class="subtitle is-5">Login</p>
+                            <form action="{% url 'FindMeA:verify' %}" method="post">
+                                {% csrf_token %}
+                                <input class = "input is-link" type="text" placeholder = "Your Username" id="username" name="username"><br><br>
+                                <!-- <label for="username">Username</label><br><br> -->
+
+                                <input class = "input is-link" type="password" placeholder = "Your Password" id="password" name="password"><br><br>
+                                <!-- <label for="password">Password</label><br><br> -->
+
+
+                                <input type="submit" value="Login">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+</body>
+</html>
+
+

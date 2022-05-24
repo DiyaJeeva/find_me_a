@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{user_name}}'s Profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/f6dbd3498a.js" crossorigin="anonymous"></script>
+
+</head>
+
+
+<body has-background-primary>
+    <section class="hero is-small has-background-black">
+        <div class="hero-body">
+            <nav class = "level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <a class = "button is-black is-small" href="/FindMeA/homepage">FIND ME A</a>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <div class="level-item">
+                        <a class = "button is-black is-small" href="/FindMeA/info">Info</a>
+                    </div>
+                    <div class="level-item">
+                        <a class = "button is-black is-small" href="/FindMeA/">Logout</a>
+                    </div>
+
+                </div>
+                
+            </nav>
+        </div>
+    </section>
+    <section class="hero is-small has-background-white">
+        <div class="hero-body">
+            <nav class="level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <a class = "button is-white" href="/FindMeA/homepage"><p class="title is-3">
+                            {% if userlogged == user_name %}
+                            Your Profile
+                            {% else %}
+                            {{user_name}}'s Profile 
+                            {% if mentoring == "yes" %}
+                
+                            <p class = "subtitle is-5"><a class = "button is-small is-white is-large has-text-weight-semibold" style = "color:#08104b;"href="/FindMeA/mentorme?user={{user_name}}">Can You Mentor Me?</a></p>
+                
+                            {% endif %}
+                            {% endif %}</p></a>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <p class="level-item"><a class = "button is-white" href="/FindMeA/homepage">Home</a></p>
+                    <p class="level-item"><a class = "button is-white" href="/FindMeA/findsomeone">Mentors</a></p>
+                    <p class="level-item"><a class = "button is-white" href="/FindMeA/browseusers">Users</a></p>
+                    <p class="level-item">
+                        <div class="dropdown is-hoverable">
+                            <div class="dropdown-trigger">
+                                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
+                                    <span>Notifications</span>
+                                    <span class="icon is-small">
+                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+                                <div class="dropdown-content">
+                                    {% for n in notifications %}
+                                    <div class="dropdown-item">
+                                        <div>
+                                            <p><a href="/FindMeA/userprofile?user={{n.sender}}">{{n.sender}}</a> said
+                                                "{{n.message}}"</p>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        </p>
+                    {% if userlogged == user_name %}
+                    <p class="level-item"><strong><a class="button is-white" href="/FindMeA/userprofile?user={{userlogged}}">You ({{userlogged}})</a></strong></p>
+                    {% else %}
+                    <p class="level-item"><a class="button is-white" href="/FindMeA/userprofile?user={{userlogged}}">You ({{userlogged}})</a></p>
+                    {% endif %}
+                  </div>
+                </nav>
+            
+        </div>
+    </section>
+        
+
+
+    <section class="section">
+        <div class="columns is-multiline">
+            <div class="column is-one-quarter">
+                <div class="card is-halfheight">
+                    <div class="card-content">
+                        <div class="content">
+                            <p class = "subtitle is-6">Name: {{first_name}} {{second_name}}</p>
+                            <p class = "subtitle is-6">Year Group: {{year_group}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <br>
+            <div class="column is-one-quarter">
+                <div class="card is-halfheight">
+                    <div class="card-content">
+                        <div class="content">
+                            <p class = "subtitle is-6">Contact {{first_name}} at {{email}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-quarter">
+                <div class="card is-halfheight">
+                    <div class="card-content">
+                        <div class="content">        
+                            <p class = "subtitle is-6">{{first_name}}'s description: {{description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-quarter">
+                <div class="card is-halfheight">
+                    <div class="card-content">
+                        <div class="content"> 
+                            <p class = "subtitle is-6">{{first_name}} is interested in the following subjects:<br>
+                            {% for interest in user_interests %}
+                                {{interest}}<br>
+                                {% endfor %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-quarter">
+                <div class="card is-halfheight">
+                    <div class="card-content">
+                        <div class="content"> 
+                            <p class = "subtitle is-6">{% if mentoring == "yes" %}
+                            Subjects {{first_name}} is able to mentor for:<br>
+                            {% for subject in mentor_subjects %}<br>
+                            {{subject}}
+                            {% endfor %}
+                            {% else %}
+                            {{first_name}} is not able to mentor
+                            {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            
+            {% if mentoring == "yes" %}
+            <p>write a review:</p>
+            {% endif %}
+
+        </div>
+
+</body>
+</html>

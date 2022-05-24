@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Fill this out to create your profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/f6dbd3498a.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body has-background-primary>
+    <p class="title is-1">Create and Build Up Your Profile</p>
+    <form action="{% url 'FindMeA:makeprofile' %}" method="post">
+        {% csrf_token %}
+        <section class="section">
+                    <div class="notification has-background-primary">
+                        <p class="subtitle is-5">Your Interests*</p>
+                    {% for interest in interests %}
+                    <label>
+                        <input type="checkbox" name="interests" id="{{interest.id}}" value={{interest.interest_text}}>
+                        {{interest.interest_text}}
+                        <br>
+                    </label>
+                    <!-- <label for=interest>{{interest.interest_text}}</label><br> -->
+                    {% endfor %}
+                    <input type="checkbox" name="None" id="None" value="None">
+                    <label for="None">None</label> <br>
+                    </div>
+                    <br>
+                <!-- </div> -->
+     
+        
+        <br>
+            <div class = "columns is-multiline">
+                <div class = "column is-one-half">
+                    <div class="notification has-background-primary">
+                        <p class="subtitle is-5">Can You Mentor?*</p>
+                        <p class = "subtitle is-3"><input type="radio" name="mentoring" id="yes" value="yes">
+                        <label for="yes">Yes</label></p>
+                        <p class = "subtitle is-3"><input type="radio" name="mentoring" id="no" value="no">
+                        <label for="no">No</label></p>
+                        <br><br>
+                    </div>
+                </div>
+        <br>
+                <div class = "column is-one-half">
+                    <div class="notification has-background-primary">
+                        <p class="subtitle is-5">What Subjects Could You Mentor For?*</p>
+                            {% for subject in interests %}
+                            <label>
+                                <input type="checkbox" name="mentors" id="{{subject.id}}" value="{{subject.interest_text}}">
+                                {{subject.interest_text}}
+                                <br>
+                            </label>
+                            {% endfor %}
+                            <input type="checkbox" name="Not Applicable" id="Not Applicable" value="Not Applicable"> 
+                            <label for="Not Applicable">Not Applicable</label><br>
+                    </div>
+                </div>
+            </div>
+                
+        <br>
+                    <div class="notification has-background-primary">
+                        <p class="subtitle is-5">Details*</p> 
+                        <!-- <label for="Name">Your First Name</label> -->
+                        <div class="columns">
+                            <div class="column">
+                                <p class="control has-icons-left has-icons-right">
+                                    <input class = "input is-info" type="text" placeholder = "Name*" id="Name" name="Name"><br><br>
+                                    <span class="icon is-small is-left">
+                                        <i class="fa-solid fa-signature"></i>                                        </span>
+                                    </span>
+                                </p>
+                            </div>
+                        <!-- <label for="Surname">Your Surname</label> -->
+                            <div class = "column">
+                                <p class="control has-icons-left has-icons-right">
+                                    <input class = "input is-info" type="text" placeholder = "Surname*" id="Surname" name="Surname"><br><br>
+                                    <span class="icon is-small is-left">
+                                        <i class="fa-solid fa-feather-pointed"></i>
+                                    </span>
+                                </p>
+                            </div>
+                            <div class = "column">
+                                <p class="control has-icons-left has-icons-right">
+                                    <input class = "input is-info" type="text" placeholder = "Describe yourself*" id="Description" name="Description"><br><br>
+                                    <span class="icon is-small is-left">
+                                    <i class="fa-solid fa-pen"></i>
+                                    </span>
+                                </p>
+                
+                            </div>
+                            <div class = "column">
+                                <p class="control has-icons-left has-icons-right">
+                                    <input class = "input is-info" type="email" placeholder = "Email*" id="Communicate" name="Communicate">
+                                    <span class="icon is-small is-left">
+                                    <i class="fas fa-envelope"></i>
+                                    </span>
+                                    <span class="icon is-small is-right">
+                                    <i class="fas fa-check"></i>
+                                    </span>
+  </p>
+                            </div>
+                        </div>
+                        <span class="icon-text">
+                            <span class="icon">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </span>
+                            <span><p class="subtitle is-6">Your Year Group*</p> </span>
+                          </span>
+                        <br><br>
+                        {% for year in yeargroups %}
+                        <input type="radio" name="year" id="{{year}}" value="{{year}}">
+                        <label for={{year}}>{{year}}</label>
+                        <br>
+                        {% endfor %}
+                        <br>
+                    </div>
+                    
+                    <input type="submit" value="Enter">
+        </section>
+        
+        
+    </form>
+        
+        
+
+	
+
+</body>
+</html>
