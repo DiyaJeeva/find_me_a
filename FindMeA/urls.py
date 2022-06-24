@@ -15,5 +15,6 @@ urlpatterns = [
     path("possiblementors", views.possiblementors, name = "possiblementors"),
     path("browseusers", views.browseusers, name = "browseusers"),
     path('findfriend', views.findfriend, name = "findfriend"),
-    path('mentorme', views.mentorme, name = "mentorme")
+    path('mentorme', views.mentorme, name = "mentorme"),
+    path("splashpage", views.splashpage, name = "splashpage")
 ]

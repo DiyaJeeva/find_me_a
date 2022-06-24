@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Homepage </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/f6dbd3498a.js" crossorigin="anonymous"></script>
+    <style>
+        .h-same{
+            height:100%; 
+            display: flex; 
+            flex-direction: column;
+        }
+    </style>
+
+</head>
+
+<body has-background-primary>
+    {% include 'FindMeA/navbar.html' %}
+    <section class="hero is-small has-background-white">
+        <div class="hero-body">
+            <nav class="level">
+                <div class="level-left">
+                    
+                    <div class="level-item">
+                        <a class="button is-white" href="/FindMeA/splashpage">
+                            <p class="title is-3">Find Me A</p>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <section class="section hero is-medium" style="background: #d2d6ff">
+        <div class = "columns">
+            <div class = "column is-one-third">
+                <div class = "card h-same is-rounded is-large is-focused is-white">
+                    <p class = "subtitle is-3 has-text-centered has-text-weight-semibold">Find Mentors Tailored To You and Form Collaborations</p>
+                </div>
+            </div>
+            <div class = "column is-one-third">
+                <div class = "card h-same is-rounded is-large is-focused is-white">
+                    <p class = "subtitle is-3 has-text-centered has-text-weight-semibold">Recommend Users and Topics You'll Enjoy</p>
+                </div>
+            </div>
+            <div class = "column is-one-third">
+                <div class = "card h-same is-rounded is-large is-focused is-white">
+                    <p class = "subtitle has-text-centered is-3 is-italic has-text-weight-semibold"><a href = "/FindMeA/">Sign Up</a> Today to Join the Community <p class = "subtitle has-text-centered is-4 is-italic has-text-weight-semibold">or <a href = "/FindMeA/">Login</a></p></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section hero is-small" style="background: hsl(0, 0%, 100%)">
+    </section>
+    <section class="section hero is-medium" style="background: #dcfffa">
+        <p class = "title is-3">All You Need To Do:</p>
+        <div class = "columns">
+            <div class = "column is-one-third">
+                <div class = "card h-same is-rounded is-large is-focused is-white">
+                    <p class = "subtitle is-3 has-text-centered has-text-weight-semibold">Create an Account & Profile</p>
+                </div>
+            </div>
+            <div class = "column is-one-third">
+                <div class = "card h-same is-rounded is-large is-focused is-white">
+                    <p class = "subtitle is-3 has-text-centered has-text-weight-semibold">Enter Your Interests, Hobbies & More</p>
+                </div>
+            </div>
+            <div class = "column is-one-third">
+                <div class = "card h-same is-rounded is-large is-focused is-white">
+                    <p class = "subtitle has-text-centered is-3 has-text-weight-semibold">Explore & Find Mentors, Partners & Collaborators For You</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section hero is-small" style="background: hsl(0, 0%, 100%)">
+    </section>
+    {% include 'FindMeA/navbar.html' %}
+
+</body>
+</html>

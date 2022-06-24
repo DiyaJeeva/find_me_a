@@ -11,8 +11,45 @@
 </head>
 
 <body has-background-primary>
-    <p class = "title is-1">{{wantsubject}} Mentors <p class = "subtitle is-3"><a href="/FindMeA/homepage">Homepage</a></p> </p>
-    <div class = "columns is-multiline" >
+    <section class="hero is-small has-background-black">
+        <div class="hero-body">
+            <nav class = "level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <a class = "button is-black is-small" href="/FindMeA/homepage">FIND ME A</a>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <div class="level-item">
+                        <a class = "button is-black is-small" href="/FindMeA/splashpage">Info</a>
+                    </div>
+                    <div class="level-item">
+                        <a class = "button is-black is-small" href="/FindMeA/">Logout</a>
+                    </div>
+
+                </div>
+                
+            </nav>
+        </div>
+    </section>
+    <section class="hero is-small has-background-white">
+        <div class="hero-body">
+            <nav class="level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <a class = "button is-white" href="/FindMeA/homepage"><p class="title is-3">Mentors For {{wantsubject}}</p></a>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <p class="level-item"><a class = "button is-white" href="/FindMeA/homepage">Home</a></p>
+                    <p class="level-item"><strong><a class = "button is-white" href="/FindMeA/findsomeone">Mentors</a></strong></p>
+                    <p class="level-item"><a class = "button is-white" href="/FindMeA/browseusers">Users</a></p>
+                    <p class="level-item"><a class="button is-white" href="/FindMeA/userprofile?user={{username}}">You ({{username}})</a></p>
+                  </div>
+                </nav>
+            
+        </div>
+    </section>    <div class = "columns is-multiline" >
         {% for user in possmentors %}
         {% if user %}
         <div class = "column is-one-quarter">

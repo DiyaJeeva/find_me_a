@@ -7,6 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/f6dbd3498a.js" crossorigin="anonymous"></script>
+    <style>
+        .h-same{
+            height:100%; 
+            display: flex; 
+            flex-direction: column;
+        }
+    </style>
 
 </head>
 
@@ -22,7 +29,7 @@
                 </div>
                 <div class="level-right">
                     <div class="level-item">
-                        <a class = "button is-black is-small" href="/FindMeA/info">Info</a>
+                        <a class = "button is-black is-small" href="/FindMeA/splashpage">Info</a>
                     </div>
                     <div class="level-item">
                         <a class = "button is-black is-small" href="/FindMeA/">Logout</a>
@@ -95,7 +102,7 @@
     <section class="section">
         <div class="columns is-multiline">
             <div class="column is-one-quarter">
-                <div class="card is-halfheight">
+                <div class="card h-same is-halfheight">
                     <div class="card-content">
                         <div class="content">
                             <p class = "subtitle is-6">Name: {{first_name}} {{second_name}}</p>
@@ -106,7 +113,7 @@
             </div>
                 <br>
             <div class="column is-one-quarter">
-                <div class="card is-halfheight">
+                <div class="card h-same is-halfheight">
                     <div class="card-content">
                         <div class="content">
                             <p class = "subtitle is-6">Contact {{first_name}} at {{email}}</p>
@@ -115,7 +122,7 @@
                 </div>
             </div>
             <div class="column is-one-quarter">
-                <div class="card is-halfheight">
+                <div class="card h-same is-halfheight">
                     <div class="card-content">
                         <div class="content">        
                             <p class = "subtitle is-6">{{first_name}}'s description: {{description}}</p>
@@ -124,7 +131,7 @@
                 </div>
             </div>
             <div class="column is-one-quarter">
-                <div class="card is-halfheight">
+                <div class="card h-same is-halfheight">
                     <div class="card-content">
                         <div class="content"> 
                             <p class = "subtitle is-6">{{first_name}} is interested in the following subjects:<br>
@@ -137,7 +144,7 @@
                 </div>
             </div>
             <div class="column is-one-quarter">
-                <div class="card is-halfheight">
+                <div class="card h-same is-halfheight">
                     <div class="card-content">
                         <div class="content"> 
                             <p class = "subtitle is-6">{% if mentoring == "yes" %}

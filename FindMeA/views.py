@@ -93,6 +93,7 @@ def signup(request):
     if user is not None:
         login(request, user)
         return createyourprofile(request)
+    
 
 def load_login_page(request):
     print('In load_login_page')
@@ -106,6 +107,8 @@ def verify_and_login(request):
     user = authenticate(request, username= username, password= password)
     if user is not None:
         login(request, user)
+        return HttpResponseRedirect(reverse('FindMeA:homepage'))
+    else:
         return HttpResponseRedirect(reverse('FindMeA:homepage'))
 
 def createyourprofile(request):
@@ -251,3 +254,7 @@ def mentorme(request):
     #return HttpResponseRedirect(reverse('FindMeA:homepage'))
     return redirect("/FindMeA/homepage?send=success")
 
+def splashpage(request):
+    
+    # return HttpResponseRedirect(reverse('FindMeA:splashpage'))
+    return render(request, "FindMeA/splashpage.html", {})
